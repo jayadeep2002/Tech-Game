@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1 class="title">Memory Match</h1>
+      <div class="controls">
+        <button id="restartBtn" class="btn">Restart</button>
+        <select id="sizeSelect" class="select" aria-label="Board Size">
+          <option value="4">4 x 4</option>
+          <option value="6">6 x 6</option>
+        </select>
+        <select id="themeSelect" class="select" aria-label="Theme">
+          <option value="emoji">Emoji</option>
+          <option value="shapes">Shapes</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="stat"><span id="moves">0</span><label>Moves</label></div>
+      <div class="stat"><span id="time">00:00</span><label>Time</label></div>
+      <div class="stat"><span id="best">--</span><label>Best</label></div>
+    </section>
+
+    <main class="board" id="board" aria-label="Memory game board" role="grid"></main>
+
+    <dialog id="winModal" class="modal">
+      <form method="dialog" class="modal__card">
+        <h2>You win! 🎉</h2>
+        <p class="modal__stats">
+          <span><strong>Moves:</strong> <span id="winMoves">0</span></span>
+          <span><strong>Time:</strong> <span id="winTime">00:00</span></span>
+          <span><strong>Board:</strong> <span id="winBoard">4x4</span></span>
+        </p>
+        <div class="modal__actions">
+          <button id="playAgainBtn" class="btn">Play again</button>
+          <button value="cancel" class="btn btn--ghost">Close</button>
+        </div>
+      </form>
+    </dialog>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
